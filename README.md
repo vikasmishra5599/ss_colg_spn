@@ -199,45 +199,6 @@ gcloud run domain-mappings create \
 
 Then add the CNAME/A records shown in the output to your DNS.
 
-### Option 2: Vercel (free, no Docker needed)
-
-1. Push the repo to GitHub.
-2. Go to [vercel.com](https://vercel.com), import the repository.
-3. Vercel auto-detects Vite. Set:
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-4. Click Deploy. Vercel provides a free HTTPS URL.
-5. Add a custom domain in Vercel dashboard settings.
-
-### Option 3: Netlify (free, no Docker needed)
-
-1. Push the repo to GitHub.
-2. Go to [netlify.com](https://netlify.com), import the repository.
-3. Set:
-   - **Build Command**: `npm run build`
-   - **Publish Directory**: `dist`
-4. Deploy. Add custom domain in site settings.
-
-### Option 4: AWS S3 + CloudFront (static hosting)
-
-1. Build locally:
-   ```bash
-   npm run build
-   ```
-2. Create an S3 bucket with static website hosting enabled.
-3. Upload the `dist/` folder contents to the bucket.
-4. Create a CloudFront distribution pointing to the S3 bucket.
-5. Add your domain with an ACM SSL certificate.
-
-### Option 5: Railway / Render / Fly.io (container hosting)
-
-These platforms detect the `Dockerfile` automatically:
-
-1. Push the repo to GitHub.
-2. Connect the repo on [railway.app](https://railway.app), [render.com](https://render.com), or [fly.io](https://fly.io).
-3. The platform builds the Docker image and deploys it.
-4. Add a custom domain in the platform dashboard.
-
 ---
 
 ## Environment Details
