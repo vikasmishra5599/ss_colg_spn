@@ -1,0 +1,153 @@
+/* ===== Variables & Reset ===== */
+:root {
+    --crimson: #8B0000;
+    --crimson-dark: #5c0000;
+    --crimson-light: #b22222;
+    --gold: #d4a843;
+    --gold-light: #f0d68a;
+    --orange: #e8620a;
+    --bg: #fdfbf7;
+    --bg-dark: #0f0505;
+    --text: #1a1a2e;
+    --text-light: #e8e0d8;
+    --glass: rgba(255, 255, 255, 0.07);
+    --shadow: 0 8px 32px rgba(139, 0, 0, 0.10);
+    --radius: 16px;
+    --tr: 0.35s cubic-bezier(.4, 0, .2, 1);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+ul {
+    list-style: none
+}
+
+img {
+    max-width: 100%;
+    display: block
+}
+
+/* ===== Section Base ===== */
+.section {
+    padding: 90px 20px;
+    position: relative
+}
+
+.section-dark {
+    background: var(--bg-dark);
+    color: var(--text-light)
+}
+
+.section-inner {
+    max-width: 1200px;
+    margin: 0 auto
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px
+}
+
+.section-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(139, 0, 0, .1), rgba(212, 168, 67, .1));
+    color: var(--crimson);
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: .78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px
+}
+
+.tag-light {
+    background: rgba(212, 168, 67, .15);
+    color: var(--gold-light)
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 12px
+}
+
+.section-title span {
+    color: var(--crimson)
+}
+
+.title-light span {
+    color: var(--gold)
+}
+
+.section-desc {
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: .65;
+    font-size: 1rem
+}
+
+.desc-light {
+    color: var(--text-light)
+}
+
+/* ===== Reveal Animation ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+/* ===== Fade-in keyframe ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px) }
+    to { opacity: 1; transform: translateY(0) }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1 }
+    50% { opacity: .5 }
+}
+
+@keyframes ctaPulse {
+    0% { width: 0; height: 0; opacity: .5 }
+    100% { width: 300px; height: 300px; opacity: 0 }
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0) }
+    100% { transform: translateX(-50%) }
+}
+
+@keyframes tickerSlide {
+    0% { transform: translateX(0) }
+    100% { transform: translateX(-50%) }
+}

@@ -1,0 +1,21 @@
+.placement-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px
+}
+.pl-stat {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: var(--radius);
+    transition: var(--tr)
+}
+.pl-stat:hover {
+    border-color: var(--gold);
+    background: rgba(212,168,67,.06);
+    transform: translateY(-4px)
+}
+.pl-num { font-size: 3rem; font-weight: 900; color: var(--gold-light); display: inline }
+.pl-suffix { font-size: 1.5rem; font-weight: 700; color: var(--gold-light) }
+.pl-stat p { font-size: .85rem; opacity: .6; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px }

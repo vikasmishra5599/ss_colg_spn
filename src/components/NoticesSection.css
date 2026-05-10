@@ -1,0 +1,50 @@
+.notices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px
+}
+.notice-card {
+    background: #fff;
+    border: 1px solid #f0e8e0;
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: var(--tr);
+    position: relative
+}
+.notice-card:hover {
+    border-color: var(--gold);
+    box-shadow: var(--shadow);
+    transform: translateY(-4px)
+}
+.notice-date {
+    font-size: .78rem;
+    color: var(--crimson);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px
+}
+.notice-new {
+    display: inline-block;
+    background: #e74c3c;
+    color: #fff;
+    font-size: .62rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    animation: pulse 2s infinite;
+    margin-bottom: 8px
+}
+.notice-card h4 { font-size: 1rem; margin-bottom: 6px; line-height: 1.4 }
+.notice-card p { font-size: .85rem; opacity: .55; margin-bottom: 14px }
+.notice-link {
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--crimson);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--tr)
+}
+.notice-link:hover { color: var(--gold); gap: 10px }

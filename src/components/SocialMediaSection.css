@@ -1,0 +1,150 @@
+.social-section {
+    background: linear-gradient(135deg, #0a1a4a, #0c1f5e);
+    padding: 70px 20px;
+    margin-top: 0
+}
+.social-inner { max-width: 1200px; margin: 0 auto }
+.social-heading {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem,3vw,1.8rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px
+}
+.social-heading-accent {
+    width: 5px;
+    height: 36px;
+    background: var(--orange);
+    border-radius: 3px;
+    flex-shrink: 0
+}
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px
+}
+.social-card {
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,.15);
+    transition: var(--tr);
+    border-top: 4px solid transparent
+}
+.social-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0,0,0,.2)
+}
+.social-card-fb { border-top-color: #1877f2 }
+.social-card-ig { border-top-color: #e4405f }
+.social-card-yt { border-top-color: #ff0000 }
+.social-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    border-bottom: 1px solid #f0e8e0
+}
+.social-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #eee;
+    object-fit: cover;
+    flex-shrink: 0
+}
+.social-card-info h4 { font-size: .82rem; font-weight: 700; color: #0a1a4a; line-height: 1.3 }
+.social-card-info p { font-size: .68rem; color: #888 }
+.social-brand-icon { font-size: 1.6rem; margin-left: auto; flex-shrink: 0 }
+.social-icon-fb { color: #1877f2 }
+.social-icon-ig {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text
+}
+.social-icon-yt { color: #ff0000 }
+.social-card-body { padding: 16px 18px; background: #fafafa }
+.social-post { margin-bottom: 14px }
+.social-post-text { font-size: .82rem; color: #444; font-weight: 500; line-height: 1.5; margin-bottom: 12px }
+.social-post-img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px }
+.social-post-stats {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    font-size: .72rem;
+    color: #888
+}
+.social-post-stats i { color: var(--crimson); margin-right: 3px }
+.ig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 4px }
+.ig-thumb {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: var(--tr);
+    cursor: pointer
+}
+.ig-thumb:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,.15) }
+.yt-thumb-wrap { position: relative; border-radius: 10px; overflow: hidden; margin-bottom: 10px }
+.yt-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 52px;
+    height: 52px;
+    background: rgba(255,0,0,.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: var(--tr);
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,.3)
+}
+.yt-thumb-wrap:hover .yt-play-btn { background: #ff0000; transform: translate(-50%,-50%) scale(1.1) }
+.yt-duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0,0,0,.8);
+    color: #fff;
+    font-size: .68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px
+}
+.yt-video-title { font-size: .82rem; font-weight: 600; color: #1a1a2e; line-height: 1.4; margin-bottom: 4px }
+.social-follow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 11px 0;
+    border-radius: 10px;
+    font-size: .82rem;
+    font-weight: 700;
+    transition: var(--tr);
+    text-transform: uppercase;
+    letter-spacing: .5px
+}
+.social-follow-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15) }
+.social-btn-fb { background: #e8f0fe; color: #1877f2 }
+.social-btn-fb:hover { background: #1877f2; color: #fff }
+.social-btn-ig { background: linear-gradient(135deg, #fce4ec, #f3e5f5); color: #c2185b }
+.social-btn-ig:hover { background: linear-gradient(135deg, #e4405f, #c2185b); color: #fff }
+.social-btn-yt { background: #ffeaea; color: #cc0000 }
+.social-btn-yt:hover { background: #ff0000; color: #fff }
+@media(max-width:768px) {
+    .social-grid { grid-template-columns: 1fr }
+    .social-heading { font-size: 1.1rem; letter-spacing: 1.5px }
+}
