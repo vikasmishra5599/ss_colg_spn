@@ -1,0 +1,53 @@
+# Cloud Build CI/CD pipeline for GCP Cloud Run
+# Trigger: push to main branch (configure in Cloud Build console)
+#
+# Required substitutions (set in trigger or override):
+#   _REGION        - GCP region (default: us-central1)
+#   _SERVICE_NAME  - Cloud Run service name (default: ssu-university)
+
+substitutions:
+  _REGION: us-central1
+  _SERVICE_NAME: ssu-university
+
+steps:
+  # 1. Build the container image
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run/${_SERVICE_NAME}:$SHORT_SHA'
+      - -t
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run/${_SERVICE_NAME}:latest'
+      - .
+
+  # 2. Push to Artifact Registry
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - '--all-tags'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run/${_SERVICE_NAME}'
+
+  # 3. Deploy to Cloud Run
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_SERVICE_NAME}
+      - --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run/${_SERVICE_NAME}:$SHORT_SHA
+      - --region=${_REGION}
+      - --platform=managed
+      - --port=8080
+      - --allow-unauthenticated
+      - --cpu=1
+      - --memory=256Mi
+      - --min-instances=0
+      - --max-instances=3
+      - --concurrency=80
+
+images:
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run/${_SERVICE_NAME}:$SHORT_SHA'
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run/${_SERVICE_NAME}:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
